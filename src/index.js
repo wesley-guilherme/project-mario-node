@@ -118,6 +118,9 @@ if (block === "RETA") {
         character2.PODER
     ); 
 
+    totalTestSkill1 = powerResult1;
+    totalTestSkill2 = powerResult2;
+
     let arma = Math.random() < 0.5 ? "CASCO" : "BOMBA"
     let dano = arma === "CASCO" ? 1 : 2
     
@@ -132,7 +135,7 @@ if (block === "RETA") {
         console.log(`${character1.NOME} ganhou +1 ponto extra`)
     }
 
-else if (powerResult2 > powerResult1) {
+    else if (powerResult2 > powerResult1) {
         console.log(
             `${character2.NOME} venceu o confronto com ${arma}!`)
         if (character1.PONTOS > 0); {
