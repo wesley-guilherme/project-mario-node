@@ -117,25 +117,37 @@ if (block === "RETA") {
         diceResult2, 
         character2.PODER
     ); 
+
+    let arma = Math.random() < 0.5 ? "CASCO" : "BOMBA"
+    let dano = arma === "CASCO" ? 1 : 2
     
-    if (powerResult1 > powerResult2 && character2.PONTOS > 0 ) {
+    if (powerResult1 > powerResult2) {
         console.log(
-            `${character1.NOME} venceu o confronto ${character2.NOME} perdeu 1 ponto 🐢`
-        )
-        character2.PONTOS--;
+            `${character1.NOME} venceu o confronto com ${arma}!`)
+        if (character2.PONTOS > 0); {
+            character2.PONTOS = Math.max(0, character2.PONTOS - dano);
+            console.log(`${character2.NOME} perdeu ${dano} ponto(s)`)
+        }
+        character1.PONTOS += 1
+        console.log(`${character1.NOME} ganhou +1 ponto extra`)
     }
 
-    if (powerResult2 > powerResult2 && character1.PONTOS > 0 ) {
-        console.log(`${character2.NOME} venceu o confronto ${character1.NOME} perdeu 1 ponto 🐢`           
-        )
-        character1.PONTOS--;
+else if (powerResult2 > powerResult1) {
+        console.log(
+            `${character2.NOME} venceu o confronto com ${arma}!`)
+        if (character1.PONTOS > 0); {
+            character1.PONTOS = Math.max(0, character1.PONTOS - dano);
+            console.log(`${character1.NOME} perdeu ${dano} ponto(s)`)
+        }
+        character2.PONTOS += 1
+        console.log(`${character2.NOME} ganhou +1 ponto extra`)
     }
-
-    console.log(
-        powerResult2 === powerResult1
-            ? "Confronto Empatado! Nenhum Ponto Foi Perdido"
-            : ""
-    )
+    else {
+        console.log(
+            powerResult2 === powerResult1
+                ? "Confronto Empatado! Nenhum Ponto Foi Perdido"
+                : "")
+        }
   }
 
   if (totalTestSkill1 > totalTestSkill2) {
